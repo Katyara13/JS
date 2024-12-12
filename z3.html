@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/z3.css">
+    <title>Document</title>
+</head>
+<body>
+    <div><img src="img/z3.png" alt=""></div>
+    <img id="imgs" src="img1.jpg" alt="Картинка" />
+    <br>
+    <button id="changeImageButton">Сменить картинку</button>
+</body>
+<script>
+        const imgs = [
+            'img/img1.jpg',
+            'img/img2.jpg', 
+            'img/img3.jpg', 
+            'img/img4.jpg',
+            'img/img5.jpg' 
+        ];
+        let Index = 0;
+        let x = 1;
+        const imageElement = document.getElementById('imgs');
+        const buttonElement = document.getElementById('changeImageButton');
+
+        buttonElement.addEventListener('click', () => {
+            Index += x;
+            if (Index >= imgs.length) {
+                Index = imgs.length - 1;
+                x = -1;
+            } else if (Index < 0) {
+                Index = 0;
+                x = 1;
+            }
+
+            imageElement.src = imgs[Index];
+        });
+    </script>
+</html>
